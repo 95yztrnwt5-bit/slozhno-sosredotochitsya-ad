@@ -4,7 +4,7 @@
 
 ## Ссылки
 
-- Репозиторий: 
+- Репозиторий: git@github.com:95yztrnwt5-bit/slozhno-sosredotochitsya-ad.git
 
 ## Что реализовано
 
