@@ -1,16 +1,36 @@
 /*
-  Специально для светлой темы при наличии класса.
-  Здесь окажутся стили, которые нужно переопределить принудительно,
-  переключая тему
+  Светлая тема: принудительная (класс) и по настройкам системы.
+  Переменные дублируются дважды — для класса и для медиафичи.
 */
 
 :root.theme-light {
-  /* сохраните этот селектор в приведённом виде.
-    Так стили написанные ниже будут иметь больший вес,
-    чем стили в медиазапросе предпочтений пользователя
-  */
+  --page-background-color: #ffeef8;
+  --page-background-image: url('../images/cover-image-light.png');
+  --text-color: #000029;
+  --heading-color: #000029;
+  --accent-color: #ff8dcb;
+  --main-title-color: #ffc2e8;
+  --link-color: #9b1e68;
+  --link-shadow-color: rgb(255 141 203 / 90%);
+  --corner-color: #000029;
+  --theme-button-color: #000029;
+  --theme-button-hover-border-color: rgb(0 0 41 / 40%);
+  --rec-display: none;
 }
 
-.theme-light .page {
-  /* Вам также нужно будет написать ряд подобных селекторов */
+@media (prefers-color-scheme: light) {
+  :root {
+    --page-background-color: #ffeef8;
+    --page-background-image: url('../images/cover-image-light.png');
+    --text-color: #000029;
+    --heading-color: #000029;
+    --accent-color: #ff8dcb;
+    --main-title-color: #ffc2e8;
+    --link-color: #9b1e68;
+    --link-shadow-color: rgb(255 141 203 / 90%);
+    --corner-color: #000029;
+    --theme-button-color: #000029;
+    --theme-button-hover-border-color: rgb(0 0 41 / 40%);
+    --rec-display: none;
+  }
 }
