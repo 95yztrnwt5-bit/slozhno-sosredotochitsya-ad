@@ -1,4 +1,44 @@
 /*
-  Переменные для вашего проекта
-  и их переопределение под различные устройства
+  Переменные проекта. Основная тема — тёмная («Неон»),
+  светлая переопределяется в light.css
 */
+
+:root {
+  --font-family: 'IBM Plex Mono', monospace;
+  --font-size-base: 0.875rem;
+  --line-height-base: 1.4;
+
+  --page-padding-inline: 0.75rem;
+  --section-gap: 1.5rem;
+  --card-gap: 0.5rem;
+  --block-min-height: 667px;
+
+  --page-background-color: #000029;
+  --page-background-image: url('../images/cover-image-dark.png');
+  --text-color: #f2e9ff;
+  --heading-color: #ff0070;
+  --accent-color: #ff0070;
+  --main-title-color: #cc00ff;
+  --title-decor-text-color: #000029;
+  --link-color: #ff62b0;
+  --link-shadow-color: rgb(255 0 112 / 60%);
+  --corner-color: #ff0070;
+  --theme-button-color: #ff0070;
+  --theme-button-hover-border-color: rgb(255 0 112 / 50%);
+  --rec-display: block;
+}
+
+@media (width >= 768px) {
+  :root {
+    --page-padding-inline: 2rem;
+    --section-gap: 2rem;
+    --block-min-height: 1024px;
+  }
+}
+
+@media (width >= 1024px) {
+  :root {
+    --page-padding-inline: 2.5rem;
+    --block-min-height: 900px;
+  }
+}
