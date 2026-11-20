@@ -1,5 +1,316 @@
-/* Основные стили проекта. Это стили для темы, которую вы верстаете первой. */
+/* Основные стили: тёмная тема, mobile first */
 
 .page {
-  /* сохраните в разметке и стилях класс page у тега body. Он удобен, чтобы составлять селекторы для разных цветовых тем. */
+  background-color: var(--page-background-color);
+  background-image: var(--page-background-image);
+  background-position: center;
+  background-size: cover;
+  background-attachment: fixed;
+  color: var(--text-color);
+  font-family: var(--font-family);
+  font-size: var(--font-size-base);
+  line-height: var(--line-height-base);
+}
+
+/* Общие декоративные элементы */
+
+.decorated-zone {
+  position: relative;
+}
+
+.decorated-zone::before,
+.decorated-zone::after {
+  content: '';
+  position: absolute;
+  inline-size: 0.625rem;
+  block-size: 0.625rem;
+  border: 0 solid var(--corner-color);
+}
+
+.decorated-zone::before {
+  inset-block-start: 0.5rem;
+  inset-inline-end: 0.5rem;
+  border-block-start-width: 1px;
+  border-inline-end-width: 1px;
+}
+
+.decorated-zone::after {
+  inset-block-end: 0.5rem;
+  inset-inline-start: 0.5rem;
+  border-block-end-width: 1px;
+  border-inline-start-width: 1px;
+}
+
+.title-decor {
+  background-color: var(--accent-color);
+  color: var(--title-decor-text-color);
+}
+
+.link {
+  color: var(--link-color);
+  text-shadow: 1px 1px 0 var(--link-shadow-color);
+}
+
+.link:hover {
+  border-block-end: 1px solid currentColor;
+}
+
+.link:focus-visible {
+  outline: none;
+  border: 1px solid currentColor;
+}
+
+/* Шапка */
+
+.header {
+  display: grid;
+  grid-template-rows: auto 1fr auto;
+  block-size: 100vh;
+  min-block-size: var(--block-min-height);
+  padding: 4rem var(--page-padding-inline) 2rem;
+}
+
+.header__rec {
+  display: var(--rec-display);
+  position: absolute;
+  inset-block-start: 1.25rem;
+  inset-inline-end: 1.5rem;
+  color: var(--accent-color);
+  font-size: 0.75rem;
+}
+
+.header__rec::after {
+  content: '';
+  display: inline-block;
+  inline-size: 0.5rem;
+  block-size: 0.5rem;
+  margin-inline-start: 0.25rem;
+  border-radius: 50%;
+  background-color: currentColor;
+}
+
+.header__theme-menu {
+  justify-self: end;
+}
+
+.header__theme-menu-list {
+  display: grid;
+  justify-items: end;
+  gap: 0.25rem;
+}
+
+.header__theme-menu-button {
+  padding: 0.125rem 0.5rem;
+  border: 1px solid transparent;
+  background: none;
+  color: var(--theme-button-color);
+  cursor: pointer;
+}
+
+.header__theme-menu-button:hover {
+  border-color: var(--theme-button-hover-border-color);
+}
+
+.header__theme-menu-button:focus-visible {
+  outline: none;
+  border-color: transparent;
+  border-block-end-color: currentColor;
+}
+
+.header__theme-menu-button_active {
+  border-color: currentColor;
+  pointer-events: none;
+}
+
+.header__title {
+  align-self: center;
+  color: var(--main-title-color);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 1;
+  text-shadow: 4px 4px 0 var(--accent-color);
+}
+
+.header__subtitle {
+  align-self: end;
+  justify-self: start;
+  padding: 0.25rem;
+  font-weight: bold;
+}
+
+/* Основной контент */
+
+.content {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 2.5rem;
+  padding: 2.5rem var(--page-padding-inline);
+}
+
+.content-section {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: var(--section-gap);
+}
+
+.content-section__title {
+  color: var(--heading-color);
+  font-size: inherit;
+}
+
+.content-section__cards {
+  display: grid;
+  gap: var(--section-gap);
+}
+
+.card {
+  display: grid;
+  gap: var(--card-gap);
+}
+
+.card__title {
+  padding: 0.125rem 0.25rem;
+  font-size: inherit;
+}
+
+.card__title_weight_regular {
+  font-weight: normal;
+}
+
+.card__text {
+  display: grid;
+  gap: var(--card-gap);
+}
+
+/* Галерея */
+
+.gallery {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr);
+  gap: 0.5rem;
+}
+
+.gallery__title {
+  padding: 0.125rem 0.25rem;
+  font-size: inherit;
+}
+
+.gallery__images {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.gallery__image {
+  display: block;
+  inline-size: 100%;
+  block-size: 100%;
+  object-fit: cover;
+}
+
+/* Подвал */
+
+.footer {
+  display: grid;
+  place-items: center;
+  block-size: 100vh;
+  min-block-size: var(--block-min-height);
+  padding: 2rem var(--page-padding-inline);
+}
+
+.footer__title {
+  color: var(--main-title-color);
+  font-size: clamp(7.25rem, 7.0115rem + 1.0178vw, 7.5rem);
+  line-height: 1;
+  text-shadow: 4px 4px 0 var(--accent-color);
+}
+
+/* Планшет и десктоп */
+
+@media (width >= 768px) {
+  .header {
+    padding-block-start: 3rem;
+  }
+
+  .header__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+
+  .header__subtitle {
+    justify-self: end;
+    max-inline-size: 28rem;
+  }
+
+  .content {
+    gap: 4rem;
+  }
+
+  .content-section {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    align-items: start;
+  }
+
+  .content-section__title {
+    grid-column: 1;
+  }
+
+  .content-section__cards {
+    grid-column: 2 / -1;
+  }
+
+  .gallery__images {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    grid-template-rows: 0.9fr 1.1fr 1.4fr;
+    aspect-ratio: 1 / 1;
+  }
+
+  .gallery__image:nth-child(1) {
+    grid-column: span 2;
+  }
+
+  .gallery__image:nth-child(2) {
+    grid-row: span 2;
+  }
+
+  .gallery__image:nth-child(3) {
+    grid-row: span 2;
+  }
+
+  .gallery__image:nth-child(5) {
+    grid-column: span 2;
+  }
+
+  .footer__title {
+    font-size: clamp(7.5rem, 0.5625rem + 14.4531vw, 9.8125rem);
+  }
+}
+
+@media (width >= 1024px) {
+  .header {
+    padding-block-start: 2.5rem;
+  }
+
+  .header__rec {
+    inset-inline-end: 2.5rem;
+  }
+
+  .header__theme-menu {
+    margin-inline-end: 4.5rem;
+  }
+
+  .header__theme-menu-list {
+    display: flex;
+    gap: 0.5rem;
+  }
+
+  .content-section_factors .content-section__title {
+    grid-column: 1 / -1;
+  }
+
+  .content-section_factors .content-section__cards {
+    grid-column: 1 / -1;
+    grid-template-columns: repeat(3, 1fr);
+  }
+
+  .content-section_reasons .content-section__cards {
+    grid-template-columns: repeat(2, 1fr);
+  }
 }
